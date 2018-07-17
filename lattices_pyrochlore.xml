@@ -1,0 +1,288 @@
+<!--
+Copyright (c) 2018, Hiroaki Kadowaki (kadowaki@tmu.ac.jp)
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without 
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, 
+this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, 
+this list of conditions and the following disclaimer in the documentation and/or 
+other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may 
+be used to endorse or promote products derived from this software without specific 
+prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+POSSIBILITY OF SUCH DAMAGE.
+
+   (See https://opensource.org/licenses/BSD-3-Clause )
+  -->
+  
+<LATTICES>
+
+<LATTICE name="simple cubic lattice" dimension="3">
+  <PARAMETER name="a" default="1"/>
+  <BASIS>
+    <VECTOR>a 0 0</VECTOR>
+    <VECTOR>0 a 0</VECTOR>
+    <VECTOR>0 0 a</VECTOR>
+  </BASIS>
+  <RECIPROCALBASIS>
+    <VECTOR>2*pi/a 0 0</VECTOR>
+    <VECTOR>0 2*pi/a 0</VECTOR>
+    <VECTOR>0 0 2*pi/a</VECTOR>
+  </RECIPROCALBASIS>
+</LATTICE>
+
+<UNITCELL name="pyrochlore" dimension="3">
+  <VERTEX><COORDINATE>0.00 0.00 0.00</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.25 0.25 0.00</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.00 0.25 0.25</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.25 0.00 0.25</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.50 0.50 0.00</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.75 0.75 0.00</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.50 0.75 0.25</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.75 0.50 0.25</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.00 0.50 0.50</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.25 0.75 0.50</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.00 0.75 0.75</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.25 0.50 0.75</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.50 0.00 0.50</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.75 0.25 0.50</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.50 0.25 0.75</COORDINATE></VERTEX>
+  <VERTEX><COORDINATE>0.75 0.00 0.75</COORDINATE></VERTEX>
+
+  <EDGE><SOURCE vertex="1"                   /><TARGET vertex="2"                   /></EDGE>
+  <EDGE><SOURCE vertex="1"                   /><TARGET vertex="3"                   /></EDGE>
+  <EDGE><SOURCE vertex="1"                   /><TARGET vertex="4"                   /></EDGE>
+  <EDGE><SOURCE vertex="2"                   /><TARGET vertex="3"                   /></EDGE>
+  <EDGE><SOURCE vertex="3"                   /><TARGET vertex="4"                   /></EDGE>
+  <EDGE><SOURCE vertex="4"                   /><TARGET vertex="2"                   /></EDGE>
+  <EDGE><SOURCE vertex="5"                   /><TARGET vertex="6"                   /></EDGE>
+  <EDGE><SOURCE vertex="5"                   /><TARGET vertex="7"                   /></EDGE>
+  <EDGE><SOURCE vertex="5"                   /><TARGET vertex="8"                   /></EDGE>
+  <EDGE><SOURCE vertex="6"                   /><TARGET vertex="7"                   /></EDGE>
+  <EDGE><SOURCE vertex="7"                   /><TARGET vertex="8"                   /></EDGE>
+  <EDGE><SOURCE vertex="8"                   /><TARGET vertex="6"                   /></EDGE>
+  <EDGE><SOURCE vertex="9"                   /><TARGET vertex="10"                  /></EDGE>
+  <EDGE><SOURCE vertex="9"                   /><TARGET vertex="11"                  /></EDGE>
+  <EDGE><SOURCE vertex="9"                   /><TARGET vertex="12"                  /></EDGE>
+  <EDGE><SOURCE vertex="10"                  /><TARGET vertex="11"                  /></EDGE>
+  <EDGE><SOURCE vertex="11"                  /><TARGET vertex="12"                  /></EDGE>
+  <EDGE><SOURCE vertex="12"                  /><TARGET vertex="10"                  /></EDGE>
+  <EDGE><SOURCE vertex="13"                  /><TARGET vertex="14"                  /></EDGE>
+  <EDGE><SOURCE vertex="13"                  /><TARGET vertex="15"                  /></EDGE>
+  <EDGE><SOURCE vertex="13"                  /><TARGET vertex="16"                  /></EDGE>
+  <EDGE><SOURCE vertex="14"                  /><TARGET vertex="15"                  /></EDGE>
+  <EDGE><SOURCE vertex="15"                  /><TARGET vertex="16"                  /></EDGE>
+  <EDGE><SOURCE vertex="16"                  /><TARGET vertex="14"                  /></EDGE>
+  <EDGE><SOURCE vertex="1"                   /><TARGET vertex="6"  offset="-1 -1  0"/></EDGE>
+  <EDGE><SOURCE vertex="1"                   /><TARGET vertex="11" offset=" 0 -1 -1"/></EDGE>
+  <EDGE><SOURCE vertex="1"                   /><TARGET vertex="16" offset="-1  0 -1"/></EDGE>
+  <EDGE><SOURCE vertex="6"                   /><TARGET vertex="11" offset=" 1  0 -1"/></EDGE>
+  <EDGE><SOURCE vertex="11" offset=" 1 -1  0"/><TARGET vertex="16"                  /></EDGE>
+  <EDGE><SOURCE vertex="16" offset=" 0  1 -1"/><TARGET vertex="6"                   /></EDGE>
+  <EDGE><SOURCE vertex="5"                   /><TARGET vertex="2"                   /></EDGE>
+  <EDGE><SOURCE vertex="5"                   /><TARGET vertex="15" offset=" 0  0 -1"/></EDGE>
+  <EDGE><SOURCE vertex="5"                   /><TARGET vertex="12" offset=" 0  0 -1"/></EDGE>
+  <EDGE><SOURCE vertex="2"                   /><TARGET vertex="15" offset=" 0  0 -1"/></EDGE>
+  <EDGE><SOURCE vertex="15"                  /><TARGET vertex="12"                  /></EDGE>
+  <EDGE><SOURCE vertex="12" offset=" 0  0 -1"/><TARGET vertex="2"                   /></EDGE>
+  <EDGE><SOURCE vertex="9"                   /><TARGET vertex="14" offset="-1  0  0"/></EDGE>
+  <EDGE><SOURCE vertex="9"                   /><TARGET vertex="3"                   /></EDGE>
+  <EDGE><SOURCE vertex="9"                   /><TARGET vertex="8"  offset="-1  0  0"/></EDGE>
+  <EDGE><SOURCE vertex="14" offset="-1  0  0"/><TARGET vertex="3"                   /></EDGE>
+  <EDGE><SOURCE vertex="3"                   /><TARGET vertex="8"  offset="-1  0  0"/></EDGE>
+  <EDGE><SOURCE vertex="8"                   /><TARGET vertex="14"                  /></EDGE>
+  <EDGE><SOURCE vertex="13"                  /><TARGET vertex="10" offset=" 0 -1  0"/></EDGE>
+  <EDGE><SOURCE vertex="13"                  /><TARGET vertex="7"  offset=" 0 -1  0"/></EDGE>
+  <EDGE><SOURCE vertex="13"                  /><TARGET vertex="4"                   /></EDGE>
+  <EDGE><SOURCE vertex="10"                  /><TARGET vertex="7"                   /></EDGE>
+  <EDGE><SOURCE vertex="7"  offset=" 0 -1  0"/><TARGET vertex="4"                   /></EDGE>
+  <EDGE><SOURCE vertex="4"                   /><TARGET vertex="10" offset=" 0 -1  0"/></EDGE>
+</UNITCELL>
+
+<LATTICEGRAPH name = "pyrochlore cubic lattice">
+  <FINITELATTICE>
+    <LATTICE ref="simple cubic lattice"/>
+    <PARAMETER name="W" default="L"/>
+    <PARAMETER name="H" default="W"/>
+    <EXTENT dimension="1" size="L"/>
+    <EXTENT dimension="2" size="W"/>
+    <EXTENT dimension="3" size="H"/>
+    <BOUNDARY type="periodic"/>
+  </FINITELATTICE>
+  <UNITCELL ref="pyrochlore"/>
+</LATTICEGRAPH>
+
+<UNITCELL name="pyrochlore_spin_ice" dimension="3">
+  <VERTEX id="1"  type="0"><COORDINATE>0.00 0.00 0.00</COORDINATE></VERTEX>
+  <VERTEX id="2"  type="1"><COORDINATE>0.00 0.25 0.25</COORDINATE></VERTEX>
+  <VERTEX id="3"  type="2"><COORDINATE>0.25 0.00 0.25</COORDINATE></VERTEX>
+  <VERTEX id="4"  type="3"><COORDINATE>0.25 0.25 0.00</COORDINATE></VERTEX>
+  <VERTEX id="5"  type="0"><COORDINATE>0.50 0.50 0.00</COORDINATE></VERTEX>
+  <VERTEX id="6"  type="1"><COORDINATE>0.50 0.75 0.25</COORDINATE></VERTEX>
+  <VERTEX id="7"  type="2"><COORDINATE>0.75 0.50 0.25</COORDINATE></VERTEX>
+  <VERTEX id="8"  type="3"><COORDINATE>0.75 0.75 0.00</COORDINATE></VERTEX>
+  <VERTEX id="9"  type="0"><COORDINATE>0.00 0.50 0.50</COORDINATE></VERTEX>
+  <VERTEX id="10" type="1"><COORDINATE>0.00 0.75 0.75</COORDINATE></VERTEX>
+  <VERTEX id="11" type="2"><COORDINATE>0.25 0.50 0.75</COORDINATE></VERTEX>
+  <VERTEX id="12" type="3"><COORDINATE>0.25 0.75 0.50</COORDINATE></VERTEX>
+  <VERTEX id="13" type="0"><COORDINATE>0.50 0.00 0.50</COORDINATE></VERTEX>
+  <VERTEX id="14" type="1"><COORDINATE>0.50 0.25 0.75</COORDINATE></VERTEX>
+  <VERTEX id="15" type="2"><COORDINATE>0.75 0.00 0.75</COORDINATE></VERTEX>
+  <VERTEX id="16" type="3"><COORDINATE>0.75 0.25 0.50</COORDINATE></VERTEX>
+  <EDGE type="0"><SOURCE vertex="1"     /><TARGET vertex="2"                    /></EDGE>
+  <EDGE type="0"><SOURCE vertex="3"     /><TARGET vertex="4"                    /></EDGE>
+  <EDGE type="1"><SOURCE vertex="1"     /><TARGET vertex="3"                    /></EDGE>
+  <EDGE type="1"><SOURCE vertex="2"     /><TARGET vertex="4"                    /></EDGE>
+  <EDGE type="2"><SOURCE vertex="1"     /><TARGET vertex="4"                    /></EDGE>
+  <EDGE type="2"><SOURCE vertex="2"     /><TARGET vertex="3"                    /></EDGE>
+  <EDGE type="0"><SOURCE vertex="5"     /><TARGET vertex="6"                    /></EDGE>
+  <EDGE type="0"><SOURCE vertex="7"     /><TARGET vertex="8"                    /></EDGE>
+  <EDGE type="1"><SOURCE vertex="5"     /><TARGET vertex="7"                    /></EDGE>
+  <EDGE type="1"><SOURCE vertex="6"     /><TARGET vertex="8"                    /></EDGE>
+  <EDGE type="2"><SOURCE vertex="5"     /><TARGET vertex="8"                    /></EDGE>
+  <EDGE type="2"><SOURCE vertex="6"     /><TARGET vertex="7"                    /></EDGE>
+  <EDGE type="0"><SOURCE vertex="9"     /><TARGET vertex="10"                   /></EDGE>
+  <EDGE type="0"><SOURCE vertex="11"    /><TARGET vertex="12"                   /></EDGE>
+  <EDGE type="1"><SOURCE vertex="9"     /><TARGET vertex="11"                   /></EDGE>
+  <EDGE type="1"><SOURCE vertex="10"    /><TARGET vertex="12"                   /></EDGE>
+  <EDGE type="2"><SOURCE vertex="9"     /><TARGET vertex="12"                   /></EDGE>
+  <EDGE type="2"><SOURCE vertex="10"    /><TARGET vertex="11"                   /></EDGE>
+  <EDGE type="0"><SOURCE vertex="13"    /><TARGET vertex="14"                   /></EDGE>
+  <EDGE type="0"><SOURCE vertex="15"    /><TARGET vertex="16"                   /></EDGE>
+  <EDGE type="1"><SOURCE vertex="13"    /><TARGET vertex="15"                   /></EDGE>
+  <EDGE type="1"><SOURCE vertex="14"    /><TARGET vertex="16"                   /></EDGE>
+  <EDGE type="2"><SOURCE vertex="13"    /><TARGET vertex="16"                   /></EDGE>
+  <EDGE type="2"><SOURCE vertex="14"    /><TARGET vertex="15"                   /></EDGE>
+  <EDGE type="0"><SOURCE vertex="6"     /><TARGET vertex="13"  offset=" 0  1  0"/></EDGE>
+  <EDGE type="0"><SOURCE vertex="12"    /><TARGET vertex="3"   offset=" 0  1  0"/></EDGE>
+  <EDGE type="1"><SOURCE vertex="6"     /><TARGET vertex="12"                   /></EDGE>
+  <EDGE type="1"><SOURCE vertex="3"     /><TARGET vertex="13"                   /></EDGE>
+  <EDGE type="2"><SOURCE vertex="12"    /><TARGET vertex="13"  offset=" 0  1  0"/></EDGE>
+  <EDGE type="2"><SOURCE vertex="6"     /><TARGET vertex="3"   offset=" 0  1  0"/></EDGE>
+  <EDGE type="0"><SOURCE vertex="7"     /><TARGET vertex="16"                   /></EDGE>
+  <EDGE type="0"><SOURCE vertex="2"     /><TARGET vertex="9"                    /></EDGE>
+  <EDGE type="1"><SOURCE vertex="7"     /><TARGET vertex="9"   offset=" 1  0  0"/></EDGE>
+  <EDGE type="1"><SOURCE vertex="16"    /><TARGET vertex="2"   offset=" 1  0  0"/></EDGE>
+  <EDGE type="2"><SOURCE vertex="7"     /><TARGET vertex="2"   offset=" 1  0  0"/></EDGE>
+  <EDGE type="2"><SOURCE vertex="16"    /><TARGET vertex="9"   offset=" 1  0  0"/></EDGE>
+  <EDGE type="0"><SOURCE vertex="11"    /><TARGET vertex="4"   offset=" 0  0  1"/></EDGE>
+  <EDGE type="0"><SOURCE vertex="14"    /><TARGET vertex="5"   offset=" 0  0  1"/></EDGE>
+  <EDGE type="1"><SOURCE vertex="11"    /><TARGET vertex="5"   offset=" 0  0  1"/></EDGE>
+  <EDGE type="1"><SOURCE vertex="14"    /><TARGET vertex="4"   offset=" 0  0  1"/></EDGE>
+  <EDGE type="2"><SOURCE vertex="11"    /><TARGET vertex="14"                   /></EDGE>
+  <EDGE type="2"><SOURCE vertex="4"     /><TARGET vertex="5"                    /></EDGE>
+  <EDGE type="0"><SOURCE vertex="10"    /><TARGET vertex="1"   offset=" 0  1  1"/></EDGE>
+  <EDGE type="0"><SOURCE vertex="15"    /><TARGET vertex="8"   offset=" 0 -1  1"/></EDGE>
+  <EDGE type="1"><SOURCE vertex="15"    /><TARGET vertex="1"   offset=" 1  0  1"/></EDGE>
+  <EDGE type="1"><SOURCE vertex="10"    /><TARGET vertex="8"   offset="-1  0  1"/></EDGE>
+  <EDGE type="2"><SOURCE vertex="8"     /><TARGET vertex="1"   offset=" 1  1  0"/></EDGE>
+  <EDGE type="2"><SOURCE vertex="15"    /><TARGET vertex="10"  offset=" 1 -1  0"/></EDGE>
+</UNITCELL>
+
+<LATTICEGRAPH name = "pyrochlore_spin_ice cubic lattice">
+  <FINITELATTICE>
+    <LATTICE ref="simple cubic lattice"/>
+    <PARAMETER name="W" default="L"/>
+    <PARAMETER name="H" default="W"/>
+    <EXTENT dimension="1" size="L"/>
+    <EXTENT dimension="2" size="W"/>
+    <EXTENT dimension="3" size="H"/>
+    <BOUNDARY type="periodic"/>
+  </FINITELATTICE>
+  <UNITCELL ref="pyrochlore_spin_ice"/>
+</LATTICEGRAPH>
+
+<LATTICE name="hexagonal_pyro lattice" dimension="3">
+  <PARAMETER name="a" default="1"/>
+  <BASIS>
+    <VECTOR> a   0           0</VECTOR>
+    <VECTOR>-a/2 a*sqrt(3)/2 0</VECTOR>
+    <VECTOR> 0   0           a*sqrt(6)</VECTOR>
+  </BASIS>
+  <RECIPROCALBASIS>
+    <VECTOR>2*pi/a 2*pi/a/sqrt(3)  0     </VECTOR>
+    <VECTOR>0      4*pi/a/sqrt(3)  0     </VECTOR>
+    <VECTOR>0      0       2*pi/a/sqrt(6)</VECTOR>
+  </RECIPROCALBASIS>
+</LATTICE>
+
+<UNITCELL name="pyrochlore_spin_ice_hex" dimension="3">
+  <VERTEX id="1"  type="0"><COORDINATE> 0     0   0  </COORDINATE></VERTEX>
+  <VERTEX id="2"  type="1"><COORDINATE>-2/6 -1/6  1/6</COORDINATE></VERTEX>
+  <VERTEX id="3"  type="2"><COORDINATE> 1/6 -1/6  1/6</COORDINATE></VERTEX>
+  <VERTEX id="4"  type="3"><COORDINATE> 1/6  2/6  1/6</COORDINATE></VERTEX>
+  <VERTEX id="5"  type="0"><COORDINATE> 2/6  4/6  2/6</COORDINATE></VERTEX>
+  <VERTEX id="6"  type="1"><COORDINATE> 0/6  3/6  3/6</COORDINATE></VERTEX>
+  <VERTEX id="7"  type="2"><COORDINATE> 3/6  3/6  3/6</COORDINATE></VERTEX>
+  <VERTEX id="8"  type="3"><COORDINATE> 3/6  6/6  3/6</COORDINATE></VERTEX>
+  <VERTEX id="9"  type="0"><COORDINATE> 4/6  2/6  4/6</COORDINATE></VERTEX>
+  <VERTEX id="10" type="1"><COORDINATE> 2/6  1/6  5/6</COORDINATE></VERTEX>
+  <VERTEX id="11" type="2"><COORDINATE> 5/6  1/6  5/6</COORDINATE></VERTEX>
+  <VERTEX id="12" type="3"><COORDINATE> 5/6  4/6  5/6</COORDINATE></VERTEX>
+  <EDGE type="0"><SOURCE vertex="1"  /><TARGET vertex="2"                /></EDGE>
+  <EDGE type="1"><SOURCE vertex="1"  /><TARGET vertex="3"                /></EDGE>
+  <EDGE type="2"><SOURCE vertex="1"  /><TARGET vertex="4"                /></EDGE>
+  <EDGE type="2"><SOURCE vertex="2"  /><TARGET vertex="3"                /></EDGE>
+  <EDGE type="2"><SOURCE vertex="3"  /><TARGET vertex="2"  offset="1 0 0"/></EDGE>
+  <EDGE type="1"><SOURCE vertex="2"  /><TARGET vertex="4"                /></EDGE>
+  <EDGE type="1"><SOURCE vertex="4"  /><TARGET vertex="2"  offset="1 1 0"/></EDGE>
+  <EDGE type="0"><SOURCE vertex="3"  /><TARGET vertex="4"                /></EDGE>
+  <EDGE type="0"><SOURCE vertex="4"  /><TARGET vertex="3"  offset="0 1 0"/></EDGE>
+  <EDGE type="0"><SOURCE vertex="5"  /><TARGET vertex="2"  offset="1 1 0"/></EDGE>
+  <EDGE type="1"><SOURCE vertex="5"  /><TARGET vertex="3"  offset="0 1 0"/></EDGE>
+  <EDGE type="2"><SOURCE vertex="5"  /><TARGET vertex="4"                /></EDGE>
+  <EDGE type="0"><SOURCE vertex="5"  /><TARGET vertex="6"                /></EDGE>
+  <EDGE type="1"><SOURCE vertex="5"  /><TARGET vertex="7"                /></EDGE>
+  <EDGE type="2"><SOURCE vertex="5"  /><TARGET vertex="8"                /></EDGE>
+  <EDGE type="2"><SOURCE vertex="6"  /><TARGET vertex="7"                /></EDGE>
+  <EDGE type="2"><SOURCE vertex="7"  /><TARGET vertex="6"  offset="1 0 0"/></EDGE>
+  <EDGE type="1"><SOURCE vertex="6"  /><TARGET vertex="8"                /></EDGE>
+  <EDGE type="1"><SOURCE vertex="8"  /><TARGET vertex="6"  offset="1 1 0"/></EDGE>
+  <EDGE type="0"><SOURCE vertex="7"  /><TARGET vertex="8"                /></EDGE>
+  <EDGE type="0"><SOURCE vertex="8"  /><TARGET vertex="7"  offset="0 1 0"/></EDGE>
+  <EDGE type="0"><SOURCE vertex="9"  /><TARGET vertex="6"  offset="1 0 0"/></EDGE>
+  <EDGE type="1"><SOURCE vertex="9"  /><TARGET vertex="7"                /></EDGE>
+  <EDGE type="2"><SOURCE vertex="9"  /><TARGET vertex="8" offset="0 -1 0"/></EDGE>
+  <EDGE type="0"><SOURCE vertex="9"  /><TARGET vertex="10"               /></EDGE>
+  <EDGE type="1"><SOURCE vertex="9"  /><TARGET vertex="11"               /></EDGE>
+  <EDGE type="2"><SOURCE vertex="9"  /><TARGET vertex="12"               /></EDGE>
+  <EDGE type="2"><SOURCE vertex="10" /><TARGET vertex="11"               /></EDGE>
+  <EDGE type="2"><SOURCE vertex="11" /><TARGET vertex="10" offset="1 0 0"/></EDGE>
+  <EDGE type="1"><SOURCE vertex="10" /><TARGET vertex="12"               /></EDGE>
+  <EDGE type="1"><SOURCE vertex="12" /><TARGET vertex="10" offset="1 1 0"/></EDGE>
+  <EDGE type="0"><SOURCE vertex="11" /><TARGET vertex="12"               /></EDGE>
+  <EDGE type="0"><SOURCE vertex="12" /><TARGET vertex="11" offset="0 1 0"/></EDGE>
+  <EDGE type="0"><SOURCE vertex="10" /><TARGET vertex="1"  offset="0 0 1"/></EDGE>
+  <EDGE type="1"><SOURCE vertex="11" /><TARGET vertex="1"  offset="1 0 1"/></EDGE>
+  <EDGE type="2"><SOURCE vertex="12" /><TARGET vertex="1"  offset="1 1 1"/></EDGE>
+</UNITCELL>
+
+<LATTICEGRAPH name = "pyrochlore hexagonal lattice">
+  <FINITELATTICE>
+    <LATTICE ref="hexagonal_pyro lattice"/>
+    <PARAMETER name="L" default="1"/>
+    <PARAMETER name="H" default="1"/>
+    <EXTENT dimension="1" size="L"/>
+    <EXTENT dimension="2" size="L"/>
+    <EXTENT dimension="3" size="H"/>
+    <BOUNDARY type="periodic"/>
+  </FINITELATTICE>
+  <UNITCELL ref="pyrochlore_spin_ice_hex"/>
+</LATTICEGRAPH>
+
+</LATTICES>

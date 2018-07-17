@@ -1,0 +1,72 @@
+// MC simulation of NN spin ice model
+//    under 111 magnetic field
+//    kagome ice     H//111 sim 0.5 T     Dy2Ti2O7     Tabata PRL 97, 257205 (2006)
+// $ export OMP_NUM_THREADS=1
+// $ ./ising_SpinIce_KagomeIce.ex < spin_ice_kagome_ice_206.ip > spin_ice_kagome_ice_206.op &
+
+LATTICE_LIBRARY = "./lattices_pyrochlore.xml";
+LATTICE = "pyrochlore hexagonal lattice";
+L=6;
+H=2;
+//        periodic boundary condition
+//        hexagonal lattice 6 x 6 x 2
+//        number of spins = 12 * L**2 * H = 864
+
+SEED = 2873
+
+SWEEPS = 200000;
+THERMALIZATION = 200000;
+
+ALGORITHM = "ising"
+
+J = -1.21;
+//        J = - J_nn  > 0  spin ice
+//        J = - J_nn = - J/3   ( Hertog & Gingras PRL 84, 3430 (2000) )
+//        J = - 1.21 K = - (J_nn + D_nn) = - J_nn,eff = - (-3.41/3 + 2.35) K
+//        Dy2Ti2O7  ( Yavorskii PRL 101, 037204 (2008) )
+
+T = 0.5;
+//        T = temperature
+
+{ h = 0.00; }
+{ h = 0.25; }
+{ h = 0.50; }
+{ h = 0.75; }
+{ h = 1.0; }
+{ h = 1.5; }
+{ h = 2.0; }
+{ h = 2.5; }
+{ h = 3.0; }
+{ h = 3.5; }
+{ h = 4.0; }
+{ h = 5.0; }
+{ h = 6.0; }
+{ h = 8.0; }
+{ h =10.0; }
+//        h = 111 magnetic field
+//        H // 111 = 1.0 T  -->  h = 6.626 K
+//        mu_eff = 9.866 mu_B   ( Yavorskii PRL 101, 037204 (2008) )
+
+
+// Exchange Monte Carlo Method
+//    Fukushima & Nemoto JPSJ 65, 1604 (1996)
+//    http://journals.jps.jp/doi/abs/10.1143/JPSJ.65.1604
+//
+// NUM_REPLICAS = 20
+//   number of replicas (temperatures) in T_MIN < T < T_MAX
+//
+// TEMPERATURE_DISTRIBUTION_TYPE = 2
+//   0 : explicit
+//   1 : equidistance in beta = 1/T
+//   2 : equidistance in 1/beta = T
+//   3 : equidistance in sqrt(beta)
+//
+// OPTIMIZE_TEMPERATURE = 1
+//   0 : no optimization
+//   1 : temperatures are optimized in T_MIN < T < T_MAX
+//
+// RANDOM_EXCHANGE = 0
+//   0 : no random
+//   1 : randomly exchanged
+//
+

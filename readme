@@ -1,0 +1,115 @@
+######
+
+MC simulations of the Ising model 
+  spin ice (Dy2Ti2O7)
+and 
+  kagome ice (Dy2Ti2O7 under 111 magnetic field) 
+are performed using ALPS MC simulation software 
+by modifing an example file.
+
+"ising_SpinIce_KagomeIce.h"
+  was modified from the original file
+  .../alps-2.3.0-src-with-boost/alps/example/parapack/ising/ising.h
+
+Replace "ising.h" to "ising_SpinIce_KagomeIce.h".
+Complile and link to get an executable file
+       .../build23/example/parapack/ising/ising
+Run three examples.
+
+######
+
+lattices_pyrochlore.xml
+
+A definition of the pyrochlore lattice to use ALPS MC simulation.
+see http://alps.comp-phys.org/mediawiki/index.php/Main_Page
+http://alps.comp-phys.org/mediawiki/index.php/Tutorials:LatticeHOWTO.
+
+######
+
+Assuming that you use
+  Ubuntu16.04
+      and
+  alps-2.3.0
+        http://alps.comp-phys.org/mediawiki/index.php/Download_and_install_ALPS_2
+        http://alps.comp-phys.org/mediawiki/index.php/Building_ALPS_from_source
+
+(1) working directory before compile and link
+
+kado@u16-8G-1:~/ALPS/testSIKI$ ls -lt
+-rw-r--r-- 1 kado kado   1695  7月 17 11:49 spin_ice_kagome_ice_208.ip
+-rw-r--r-- 1 kado kado   1738  7月 17 11:49 spin_ice_kagome_ice_207.ip
+-rw-r--r-- 1 kado kado   1792  7月 17 11:49 spin_ice_kagome_ice_206.ip
+-rw-r--r-- 1 kado kado   8261  7月 17 11:49 ising_SpinIce_KagomeIce.h
+-rw-r--r-- 1 kado kado  18706  7月 17 09:39 lattices_pyrochlore.xml
+
+(2) compile and link
+
+cd /home/kado/ALPS/alps-2.3.0-src-with-boost/alps/example/parapack/ising
+cp /home/kado/ALPS/testSIKI/ising_SpinIce_KagomeIce.h ./
+cp ising_SpinIce_KagomeIce.h ising.h
+cd /home/kado/ALPS/build23
+sudo make
+cd /home/kado/ALPS/testSIKI/
+cp /home/kado/ALPS/build23/example/parapack/ising/ising ./ising_SpinIce_KagomeIce.ex
+
+(3) working directory before runnig the three tests
+
+kado@u16-8G-1:~/ALPS/testSIKI$ ls -lt
+total 1884
+-rwxr-xr-x 1 kado kado 935296  7月 17 11:53 ising_SpinIce_KagomeIce.ex
+-rw-r--r-- 1 kado kado   1695  7月 17 11:49 spin_ice_kagome_ice_208.ip
+-rw-r--r-- 1 kado kado   1738  7月 17 11:49 spin_ice_kagome_ice_207.ip
+-rw-r--r-- 1 kado kado   1792  7月 17 11:49 spin_ice_kagome_ice_206.ip
+drwxrwxr-x 2 kado kado   4096  7月 17 11:49 olds
+-rw-r--r-- 1 kado kado  18706  7月 17 09:39 lattices_pyrochlore.xml
+
+(4) run three test simulations
+
+kado@u16-8G-1:~/ALPS/testSIKI$ export OMP_NUM_THREADS=1
+kado@u16-8G-1:~/ALPS/testSIKI$ time ./ising_SpinIce_KagomeIce.ex < spin_ice_kagome_ice_206.ip > spin_ice_kagome_ice_206.op &
+real	5m58.843s
+user	5m58.829s
+sys	0m0.012s
+
+kado@u16-8G-1:~/ALPS/testSIKI$ time ./ising_SpinIce_KagomeIce.ex < spin_ice_kagome_ice_207.ip > spin_ice_kagome_ice_207.op &
+real	8m26.066s
+user	8m26.052s
+sys	0m0.012s
+
+kado@u16-8G-1:~/ALPS/testSIKI$ time ./ising_SpinIce_KagomeIce.ex < spin_ice_kagome_ice_208.ip > spin_ice_kagome_ice_208.op &
+real	40m37.786s
+user	40m37.750s
+sys	0m0.008s
+
+(5) make tables of the results
+
+gfortran -Wall -o make_table_noEXMC.ex make_table_noEXMC.f90
+gfortran -Wall -o make_table_EXMC.ex make_table_EXMC.f90
+gfortran -Wall -o make_table_hex_noEXMC.ex make_table_hex_noEXMC.f90
+
+cat > filenames
+'spin_ice_kagome_ice_206.op' 'spin_ice_kagome_ice_206.tab'
+'end' 'endend'
+
+./make_table_hex_noEXMC.ex < filenames
+
+cat > filenames
+'spin_ice_kagome_ice_207.op' 'spin_ice_kagome_ice_207.tab'
+'end' 'endend'
+
+./make_table_noEXMC.ex < filenames
+
+cat > filenames
+'spin_ice_kagome_ice_208.op' 'spin_ice_kagome_ice_208.tab'
+'end' 'endend'
+
+./make_table_EXMC.ex < filenames
+
+(6) the tables
+       spin_ice_kagome_ice_206.tab
+       spin_ice_kagome_ice_207.tab
+       spin_ice_kagome_ice_208.tab
+are plotted and shown in "plots_206_207_208.pdf"
+
+
+
