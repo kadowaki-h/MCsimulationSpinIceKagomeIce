@@ -1,14 +1,14 @@
 ######
 
-MC simulations of the Ising model 
+MC simulations of the Ising models 
   spin ice (Dy2Ti2O7)
-and 
+or
   kagome ice (Dy2Ti2O7 under 111 magnetic field) 
 are performed using ALPS MC simulation software 
 by modifing an example file.
 
 "ising_SpinIce_KagomeIce.h"
-  was modified from the original file
+  is modified from the original file
   .../alps-2.3.0-src-with-boost/alps/example/parapack/ising/ising.h
 
 Replace "ising.h" to "ising_SpinIce_KagomeIce.h".
@@ -22,7 +22,7 @@ lattices_pyrochlore.xml
 
 A definition of the pyrochlore lattice to use ALPS MC simulation.
 see http://alps.comp-phys.org/mediawiki/index.php/Main_Page
-http://alps.comp-phys.org/mediawiki/index.php/Tutorials:LatticeHOWTO.
+    http://alps.comp-phys.org/mediawiki/index.php/Tutorials:LatticeHOWTO.
 
 ######
 
@@ -36,11 +36,11 @@ Assuming that you use
 (1) working directory before compile and link
 
 kado@u16-8G-1:~/ALPS/testSIKI$ ls -lt
--rw-r--r-- 1 kado kado   1695  7月 17 11:49 spin_ice_kagome_ice_208.ip
--rw-r--r-- 1 kado kado   1738  7月 17 11:49 spin_ice_kagome_ice_207.ip
--rw-r--r-- 1 kado kado   1792  7月 17 11:49 spin_ice_kagome_ice_206.ip
--rw-r--r-- 1 kado kado   8261  7月 17 11:49 ising_SpinIce_KagomeIce.h
--rw-r--r-- 1 kado kado  18706  7月 17 09:39 lattices_pyrochlore.xml
+-rw-r--r-- 1 kado kado   1695  7/ 17 11:49 spin_ice_kagome_ice_208.ip
+-rw-r--r-- 1 kado kado   1738  7/ 17 11:49 spin_ice_kagome_ice_207.ip
+-rw-r--r-- 1 kado kado   1792  7/ 17 11:49 spin_ice_kagome_ice_206.ip
+-rw-r--r-- 1 kado kado   8261  7/ 17 11:49 ising_SpinIce_KagomeIce.h
+-rw-r--r-- 1 kado kado  18706  7/ 17 09:39 lattices_pyrochlore.xml
 
 (2) compile and link
 
@@ -52,16 +52,16 @@ sudo make
 cd /home/kado/ALPS/testSIKI/
 cp /home/kado/ALPS/build23/example/parapack/ising/ising ./ising_SpinIce_KagomeIce.ex
 
-(3) working directory before runnig the three tests
+(3) working directory before running the three test simulations
 
 kado@u16-8G-1:~/ALPS/testSIKI$ ls -lt
 total 1884
--rwxr-xr-x 1 kado kado 935296  7月 17 11:53 ising_SpinIce_KagomeIce.ex
--rw-r--r-- 1 kado kado   1695  7月 17 11:49 spin_ice_kagome_ice_208.ip
--rw-r--r-- 1 kado kado   1738  7月 17 11:49 spin_ice_kagome_ice_207.ip
--rw-r--r-- 1 kado kado   1792  7月 17 11:49 spin_ice_kagome_ice_206.ip
-drwxrwxr-x 2 kado kado   4096  7月 17 11:49 olds
--rw-r--r-- 1 kado kado  18706  7月 17 09:39 lattices_pyrochlore.xml
+-rwxr-xr-x 1 kado kado 935296  7/ 17 11:53 ising_SpinIce_KagomeIce.ex
+-rw-r--r-- 1 kado kado   1695  7/ 17 11:49 spin_ice_kagome_ice_208.ip
+-rw-r--r-- 1 kado kado   1738  7/ 17 11:49 spin_ice_kagome_ice_207.ip
+-rw-r--r-- 1 kado kado   1792  7/ 17 11:49 spin_ice_kagome_ice_206.ip
+drwxrwxr-x 2 kado kado   4096  7/ 17 11:49 olds
+-rw-r--r-- 1 kado kado  18706  7/ 17 09:39 lattices_pyrochlore.xml
 
 (4) run three test simulations
 
